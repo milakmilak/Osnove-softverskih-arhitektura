@@ -3,8 +3,10 @@ package com.osa.osaproject.service.implementation;
 import com.osa.osaproject.model.Kupac;
 import com.osa.osaproject.repository.KupacRepository;
 import com.osa.osaproject.service.KupacService;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -17,21 +19,25 @@ public class KupacServiceImplementation implements KupacService {
     }
 
     @Override
+    @ReadOnlyProperty
     public List<Kupac> findAll() {
         return repository.findAll();
     }
 
     @Override
+    @ReadOnlyProperty
     public Kupac findById(Long id) {
         return repository.findById(id).get();
     }
 
     @Override
+    @Transactional
     public Kupac create(Kupac kupac) {
         return repository.save(kupac);
     }
 
     @Override
+    @Transactional
     public Kupac update(Long id, Kupac update) {
         Kupac updated = repository.findById(id).get();
 
@@ -47,6 +53,7 @@ public class KupacServiceImplementation implements KupacService {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         Kupac deleted = repository.findById(id).get();
         repository.delete(deleted);

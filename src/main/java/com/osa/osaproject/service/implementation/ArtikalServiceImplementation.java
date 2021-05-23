@@ -3,8 +3,10 @@ package com.osa.osaproject.service.implementation;
 import com.osa.osaproject.model.Artikal;
 import com.osa.osaproject.repository.ArtikalRepository;
 import com.osa.osaproject.service.ArtikalService;
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -17,21 +19,25 @@ public class ArtikalServiceImplementation implements ArtikalService {
     }
 
     @Override
+    @ReadOnlyProperty
     public List<Artikal> findAll() {
         return repository.findAll();
     }
 
     @Override
+    @ReadOnlyProperty
     public Artikal findById(Long id) {
         return repository.findById(id).get();
     }
 
     @Override
+    @Transactional
     public Artikal create(Artikal artikal) {
         return repository.save(artikal);
     }
 
     @Override
+    @Transactional
     public Artikal update(Long id, Artikal update) {
         Artikal updated = repository.findById(id).get();
 
@@ -46,6 +52,7 @@ public class ArtikalServiceImplementation implements ArtikalService {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         Artikal deleted = repository.findById(id).get();
         repository.delete(deleted);
