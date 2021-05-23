@@ -33,12 +33,13 @@ public class Akcija {
 
     }
 
-    public Akcija(Integer procenat, LocalDate odKad, LocalDate doKad, String tekst, List<Artikal> artikliNaAkciji, Prodavac) {
+    public Akcija(Integer procenat, LocalDate odKad, LocalDate doKad, String tekst, List<Artikal> artikliNaAkciji, Prodavac prodavac) {
         this.procenat = procenat;
         this.odKad = odKad;
         this.doKad = doKad;
         this.tekst = tekst;
         this.artikliNaAkciji = artikliNaAkciji;
+        this.prodavac = prodavac;
     }
 
     public Long getId() {
@@ -92,6 +93,15 @@ public class Akcija {
 
     public Akcija setArtikliNaAkciji(List<Artikal> artikliNaAkciji) {
         this.artikliNaAkciji = artikliNaAkciji;
+        return this;
+    }
+
+    public Prodavac getProdavac() {
+        return prodavac;
+    }
+
+    public Akcija setProdavac(Prodavac prodavac) {
+        this.prodavac = prodavac;
         return this;
     }
 }
