@@ -31,6 +31,11 @@ public class KupacServiceImplementation implements KupacService {
     }
 
     @Override
+    public Kupac findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
+    @Override
     @Transactional
     public Kupac create(Kupac kupac) {
         return repository.save(kupac);
@@ -47,7 +52,7 @@ public class KupacServiceImplementation implements KupacService {
                 .setPrezime(update.getPrezime())
                 .setUsername(update.getUsername())
                 .setPassword(update.getPassword())
-                .setBlokiran(update.isBlokiran());
+                .setIsBlokiran(update.isIsBlokiran());
 
         return repository.save(updated);
     }

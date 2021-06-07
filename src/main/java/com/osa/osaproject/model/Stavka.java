@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -21,7 +22,7 @@ public class Stavka {
 
     private Integer kolicina; // broj komada tog artikla
 
-    @OneToOne
+    @ManyToOne
     private Porudzbina porudzbina; // koja je porudzbina u pitanju
 
     @OneToOne

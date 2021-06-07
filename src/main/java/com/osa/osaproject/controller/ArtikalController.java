@@ -4,7 +4,9 @@ import com.osa.osaproject.dto.ArtikalDto;
 import com.osa.osaproject.model.Artikal;
 import com.osa.osaproject.service.ArtikalService;
 import com.osa.osaproject.util.ArtikalMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,22 +22,21 @@ import java.util.List;
 @RequestMapping("/api/v1/artikli")
 public class ArtikalController {
 
-    private final ArtikalService service;
-    private final ArtikalMapper mapper;
+    @Autowired
+    private ArtikalService service;
 
-    public ArtikalController(ArtikalService service, ArtikalMapper mapper) {
-        this.service = service;
-        this.mapper = mapper;
-    }
+    @Autowired
+    private ArtikalMapper mapper;
 
     @GetMapping
     public ResponseEntity<List<ArtikalDto>> findAll() {
         List<Artikal> found = service.findAll();
-        List<ArtikalDto> converted = mapper.maptoArtikalsDto(found);
+        List<ArtikalDto> converted = mapper.mapToArtikalsDto(found);
 
         return ResponseEntity.ok(converted);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMINISTRATOR', 'ROLE_KUPAC', 'ROLE_PRODAVAC')")
     @GetMapping("/{id}")
     public ResponseEntity<ArtikalDto> findById(@PathVariable("id") Long id) {
         Artikal found = service.findById(id);
@@ -44,6 +45,7 @@ public class ArtikalController {
         return ResponseEntity.ok(converted);
     }
 
+    @PreAuthorize("hasRole('ROLE_PRODAVAC')")
     @PostMapping
     public ResponseEntity<Artikal> create(@RequestBody ArtikalDto dto) {
         Artikal created = mapper.mapToArtikal(dto);
@@ -52,6 +54,7 @@ public class ArtikalController {
         return ResponseEntity.ok(created);
     }
 
+    @PreAuthorize("hasRole('ROLE_PRODAVAC')")
     @PutMapping("/{id}")
     public ResponseEntity<Artikal> update(@PathVariable("id") Long id, @RequestBody ArtikalDto update) {
         Artikal updated = service.findById(id);
@@ -62,6 +65,7 @@ public class ArtikalController {
         return ResponseEntity.ok(updated);
     }
 
+    @PreAuthorize("hasRole('ROLE_PRODAVAC')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
         service.delete(id);

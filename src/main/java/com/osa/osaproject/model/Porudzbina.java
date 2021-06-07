@@ -1,5 +1,6 @@
 package com.osa.osaproject.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +31,10 @@ public class Porudzbina {
     @OneToOne
     private Kupac kupac;// kupac koji je napravio porudzbinu
 
-    @OneToMany
+    @OneToMany(
+            mappedBy = "porudzbina",
+            cascade = CascadeType.ALL
+    )
     private List<Stavka> stavke;// ovde je smesten broj artikala koje je porucio, SPREGA IZMEDJU PORUDZBINE I ARTIKLA
 
     public Porudzbina() {

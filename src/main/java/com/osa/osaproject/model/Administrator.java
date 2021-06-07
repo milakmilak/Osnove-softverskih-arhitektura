@@ -9,7 +9,7 @@ public class Administrator extends Korisnik {
         super();
     }
 
-    public Administrator(Long id, String ime, String prezime, String username, String password, boolean blokiran) {
-        super(id, ime, prezime, username, password, blokiran);
+    public Administrator(Long id, String ime, String prezime, String username, String password, boolean blokiran, Role role) {
+        super(id, ime, prezime, username, password, blokiran, role);
     }
 }

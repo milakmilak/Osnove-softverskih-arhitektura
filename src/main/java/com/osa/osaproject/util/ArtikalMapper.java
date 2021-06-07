@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class ArtikalMapper {
 
     //Converting ARTIKAL's to DTO's for GET request
-    public List<ArtikalDto> maptoArtikalsDto(List<Artikal> artikali) {
+    public List<ArtikalDto> mapToArtikalsDto(List<Artikal> artikali) {
         List<ArtikalDto> converted = artikali.stream()
                 .map(this::mapToArtikalDto)
                 .collect(Collectors.toList());

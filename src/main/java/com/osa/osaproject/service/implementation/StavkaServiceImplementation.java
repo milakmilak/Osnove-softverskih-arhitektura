@@ -3,6 +3,7 @@ package com.osa.osaproject.service.implementation;
 import com.osa.osaproject.model.Stavka;
 import com.osa.osaproject.repository.StavkaRepository;
 import com.osa.osaproject.service.StavkaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,8 @@ import java.util.List;
 @Service
 public class StavkaServiceImplementation implements StavkaService {
 
-    private final StavkaRepository repository;
-
-    public StavkaServiceImplementation(StavkaRepository repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private StavkaRepository repository;
 
     @Override
     @ReadOnlyProperty
