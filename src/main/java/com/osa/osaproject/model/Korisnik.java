@@ -1,36 +1,47 @@
 package com.osa.osaproject.model;
 
+
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Korisnik {
+public abstract class Korisnik implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
+
     private String ime;
     private String prezime;
     private String username;
     private String password;
-    private boolean blokiran;
+
+    private boolean isBlokiran;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public Korisnik() {
 
     }
 
-    public Korisnik(Long id, String ime, String prezime, String username, String password, boolean blokiran) {
+    public Korisnik(Long id, String ime, String prezime, String username, String password, boolean isBlokiran, Role role) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
         this.username = username;
         this.password = password;
-        this.blokiran = blokiran;
+        this.isBlokiran = isBlokiran;
+        this.role = role;
     }
 
     public Long getId() {
@@ -78,12 +89,20 @@ public abstract class Korisnik {
         return this;
     }
 
-    public boolean isBlokiran() {
-        return blokiran;
+    public boolean isIsBlokiran() {
+        return isBlokiran;
     }
 
-    public Korisnik setBlokiran(boolean blokiran) {
-        this.blokiran = blokiran;
+    public Korisnik setIsBlokiran(boolean blokiran) {
+        this.isBlokiran = blokiran;
         return this;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

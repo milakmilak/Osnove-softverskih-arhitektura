@@ -31,6 +31,11 @@ public class AdministratorServiceImplementation implements AdministratorService 
     }
 
     @Override
+    public Administrator findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
+    @Override
     @Transactional
     public Administrator create(Administrator administrator) {
         return repository.save(administrator);
@@ -45,7 +50,7 @@ public class AdministratorServiceImplementation implements AdministratorService 
                 .setPrezime(update.getPrezime())
                 .setUsername(update.getUsername())
                 .setPassword(update.getPassword())
-                .setBlokiran(update.isBlokiran());
+                .setIsBlokiran(update.isIsBlokiran());
 
         return repository.save(updated);
     }

@@ -23,9 +23,9 @@ public class Prodavac extends Korisnik {
         super();
     }
 
-    public Prodavac(Long id, String ime, String prezime, String username, String password, boolean blokiran,
+    public Prodavac(Long id, String ime, String prezime, String username, String password, boolean blokiran, Role role,
                     LocalDate poslujeOd, String email, String adresa, String naziv, List<Artikal> artikli, List<Akcija> akcije) {
-        super(id, ime, prezime, username, password, blokiran);
+        super(id, ime, prezime, username, password, blokiran, role);
         this.poslujeOd = poslujeOd;
         this.email = email;
         this.adresa = adresa;

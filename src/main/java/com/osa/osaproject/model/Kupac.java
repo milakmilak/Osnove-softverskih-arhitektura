@@ -1,5 +1,6 @@
 package com.osa.osaproject.model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -16,8 +17,8 @@ public class Kupac extends Korisnik {
         super();
     }
 
-    public Kupac(Long id, String ime, String prezime, String username, String password, boolean blokiran, String adresa, List<Porudzbina> porudzbine) {
-        super(id, ime, prezime, username, password, blokiran);
+    public Kupac(Long id, String ime, String prezime, String username, String password, boolean blokiran, Role role, String adresa, List<Porudzbina> porudzbine) {
+        super(id, ime, prezime, username, password, blokiran, role);
         this.adresa = adresa;
         this.porudzbine = porudzbine;
     }

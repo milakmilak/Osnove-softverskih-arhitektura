@@ -31,6 +31,11 @@ public class ProdavacServiceImplementation implements ProdavacService {
     }
 
     @Override
+    public Prodavac findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
+    @Override
     @Transactional
     public Prodavac create(Prodavac prodavac) {
         return repository.save(prodavac);
@@ -51,7 +56,7 @@ public class ProdavacServiceImplementation implements ProdavacService {
                 .setPrezime(update.getPrezime())
                 .setUsername(update.getUsername())
                 .setPassword(update.getPassword())
-                .setBlokiran(update.isBlokiran());
+                .setIsBlokiran(update.isIsBlokiran());
 
         return repository.save(updated);
     }
