@@ -8,11 +8,12 @@ import java.util.List;
 public class ArtikalDto {
 
     private Long id;
-    private String naziv, opis;
+
+    private String naziv;
+    private String opis;
+    private String putanjaSlike;
 
     private Double cena;
-
-    private String putanjaSlike;
 
     private Prodavac prodavac;
 

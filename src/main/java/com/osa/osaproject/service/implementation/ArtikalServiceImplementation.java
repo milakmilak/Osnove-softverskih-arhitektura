@@ -3,7 +3,6 @@ package com.osa.osaproject.service.implementation;
 import com.osa.osaproject.model.Artikal;
 import com.osa.osaproject.repository.ArtikalRepository;
 import com.osa.osaproject.service.ArtikalService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +12,11 @@ import java.util.List;
 @Service
 public class ArtikalServiceImplementation implements ArtikalService {
 
-    @Autowired
-    private ArtikalRepository repository;
+    private final ArtikalRepository repository;
+
+    public ArtikalServiceImplementation(ArtikalRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     @ReadOnlyProperty

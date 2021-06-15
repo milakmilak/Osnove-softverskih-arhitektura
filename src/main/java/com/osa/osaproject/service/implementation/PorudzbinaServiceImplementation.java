@@ -3,7 +3,6 @@ package com.osa.osaproject.service.implementation;
 import com.osa.osaproject.model.Porudzbina;
 import com.osa.osaproject.repository.PorudzbinaRepository;
 import com.osa.osaproject.service.PorudzbinaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +12,11 @@ import java.util.List;
 @Service
 public class PorudzbinaServiceImplementation implements PorudzbinaService {
 
-    @Autowired
-    private PorudzbinaRepository repository;
+    private final PorudzbinaRepository repository;
+
+    public PorudzbinaServiceImplementation(PorudzbinaRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     @ReadOnlyProperty
