@@ -1,15 +1,7 @@
 package com.osa.osaproject.model;
 
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -17,7 +9,8 @@ import java.io.Serializable;
 public abstract class Korisnik implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen")
+    @SequenceGenerator(name = "seq_gen", initialValue = 2)
     private Long id;
 
     private String ime;
