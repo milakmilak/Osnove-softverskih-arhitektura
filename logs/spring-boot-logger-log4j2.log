@@ -1,0 +1,41 @@
+2021-07-02 11:23:44,271 INFO o.s.b.StartupInfoLogger [main] Starting OsaProjectApplication using Java 16.0.1 on DESKTOP-6FVPB5A with PID 6188 (C:\Users\Igor\Desktop\workspace\Osnove-softverskih-arhitektura\target\classes started by Igor in C:\Users\Igor\Desktop\workspace\Osnove-softverskih-arhitektura)
+2021-07-02 11:23:44,283 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-07-02 11:23:45,325 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2021-07-02 11:23:45,450 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 109 ms. Found 7 JPA repository interfaces.
+2021-07-02 11:23:45,841 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6ab4a5b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-02 11:23:45,856 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-02 11:23:46,124 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-07-02 11:23:46,140 INFO o.a.j.l.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-07-02 11:23:46,140 INFO o.a.j.l.DirectJDKLog [main] Starting service [Tomcat]
+2021-07-02 11:23:46,140 INFO o.a.j.l.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-07-02 11:23:46,249 INFO o.a.j.l.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-07-02 11:23:46,249 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1903 ms
+2021-07-02 11:23:46,325 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2021-07-02 11:23:46,502 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-07-02 11:23:46,512 INFO o.s.b.a.h.H2ConsoleAutoConfiguration [main] H2 console available at '/h2'. Database available at 'jdbc:h2:~/dostava'
+2021-07-02 11:23:46,617 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-07-02 11:23:46,660 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-02 11:23:46,702 INFO o.h.j.i.u.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-07-02 11:23:46,787 INFO o.h.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2021-07-02 11:23:46,970 INFO o.h.a.c.r.j.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-07-02 11:23:47,181 INFO o.h.d.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-07-02 11:23:47,779 INFO o.s.s.w.DefaultSecurityFilterChain [main] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35c8be21, org.springframework.security.web.context.SecurityContextPersistenceFilter@1c3b6963, org.springframework.security.web.header.HeaderWriterFilter@624b3544, org.springframework.web.filter.CorsFilter@60807fd9, org.springframework.security.web.authentication.logout.LogoutFilter@4fb57fb3, com.osa.osaproject.security.AuthenticationTokenFilter@3c7279a5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55a0f011, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@76a362a4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bcdd6e4, org.springframework.security.web.session.SessionManagementFilter@2c9fdb64, org.springframework.security.web.access.ExceptionTranslationFilter@6e95973c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52aa7742]
+2021-07-02 11:23:48,265 INFO o.a.j.l.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-07-02 11:23:48,338 INFO o.s.b.w.e.t.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path '/dostava'
+2021-07-02 11:23:48,343 INFO o.s.d.r.c.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2021-07-02 11:23:48,643 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-07-02 11:23:48,643 INFO o.s.o.j.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-07-02 11:23:49,149 INFO o.s.d.r.c.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2021-07-02 11:23:49,161 INFO o.s.b.StartupInfoLogger [main] Started OsaProjectApplication in 5.625 seconds (JVM running for 8.149)
+2021-07-02 11:24:11,898 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-02 11:24:11,899 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-07-02 11:24:11,900 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-07-02 11:24:12,142 INFO c.o.o.c.ArtikalController [http-nio-8080-exec-1] GET '/api/v1/artikli': Finding all artikli.
+2021-07-02 12:22:26,201 INFO c.o.o.c.AuthenticationController [http-nio-8080-exec-4] POST '/api/v1/authenticate': Generating token.
+2021-07-02 12:22:26,429 INFO c.o.o.c.ArtikalController [http-nio-8080-exec-6] GET '/api/v1/artikli': Finding all artikli.
+2021-07-02 12:22:31,717 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-7] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
+2021-07-02 12:25:23,424 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-10] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
+2021-07-02 12:25:30,538 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-1] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
+2021-07-02 12:25:42,430 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-2] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
+2021-07-02 12:26:46,505 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-4] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
+2021-07-02 12:27:08,438 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-5] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.

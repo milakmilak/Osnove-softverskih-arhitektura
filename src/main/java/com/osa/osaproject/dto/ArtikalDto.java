@@ -1,6 +1,5 @@
 package com.osa.osaproject.dto;
 
-import com.osa.osaproject.model.Akcija;
 import com.osa.osaproject.model.Prodavac;
 
 import java.util.List;
@@ -15,38 +14,12 @@ public class ArtikalDto {
 
     private Double cena;
 
+    //private Long prodavacId;
     private Prodavac prodavac;
 
-    private List<Akcija> akcije;
+    private List<Long> akcijeIds;
 
     public ArtikalDto() {
-    }
-
-    //GET request constructor
-    public ArtikalDto(Long id, String naziv, String opis, Double cena) {
-        this.id = id;
-        this.naziv = naziv;
-        this.opis = opis;
-        this.cena = cena;
-    }
-
-    //POST request constructor
-    public ArtikalDto(String naziv, String opis, Double cena, String putanjaSlike) {
-        this.naziv = naziv;
-        this.opis = opis;
-        this.cena = cena;
-        this.putanjaSlike = putanjaSlike;
-    }
-
-    //PUT request constructor
-    public ArtikalDto(Long id, String naziv, String opis, Double cena, String putanjaSlike, Prodavac prodavac, List<Akcija> akcije) {
-        this.id = id;
-        this.naziv = naziv;
-        this.opis = opis;
-        this.cena = cena;
-        this.putanjaSlike = putanjaSlike;
-        this.prodavac = prodavac;
-        this.akcije = akcije;
     }
 
     public Long getId() {
@@ -89,6 +62,15 @@ public class ArtikalDto {
         this.putanjaSlike = putanjaSlike;
     }
 
+    /*public Long getProdavacId()
+    {
+        return prodavacId;
+    }
+
+    public void setProdavacId(Long prodavacId) {
+        this.prodavacId = prodavacId;
+    }*/
+
     public Prodavac getProdavac() {
         return prodavac;
     }
@@ -97,11 +79,11 @@ public class ArtikalDto {
         this.prodavac = prodavac;
     }
 
-    public List<Akcija> getAkcije() {
-        return akcije;
+    public List<Long> getAkcijeIds() {
+        return akcijeIds;
     }
 
-    public void setAkcije(List<Akcija> akcije) {
-        this.akcije = akcije;
+    public void setAkcijeIds(List<Long> akcijeIds) {
+        this.akcijeIds = akcijeIds;
     }
 }

@@ -5,6 +5,8 @@ import com.osa.osaproject.model.Prodavac;
 import com.osa.osaproject.model.Role;
 import com.osa.osaproject.service.KupacService;
 import com.osa.osaproject.service.ProdavacService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +15,9 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/v1/registration")
-@CrossOrigin(origins = "http://localhost:4200")
 public class RegistrationController {
+
+    private static Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
     private final KupacService kupacService;
     private final ProdavacService prodavacService;
@@ -31,6 +34,7 @@ public class RegistrationController {
 
         kupac.setPorudzbine(new ArrayList<>());
 
+        logger.info("POST '/api/v1/registration': Registrating KUPAC.");
         return ResponseEntity.ok(kupacService.create(kupac));
     }
 
@@ -43,6 +47,7 @@ public class RegistrationController {
         prodavac.setArtikli(new ArrayList<>());
         prodavac.setAkcija(new ArrayList<>());
 
+        logger.info("POST '/api/v1/registration': Registrating PRODAVAC.");
         return ResponseEntity.ok(prodavacService.create(prodavac));
     }
 
