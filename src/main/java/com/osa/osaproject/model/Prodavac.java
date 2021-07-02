@@ -1,5 +1,8 @@
 package com.osa.osaproject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.time.LocalDate;
@@ -13,10 +16,18 @@ public class Prodavac extends Korisnik {
     private String adresa;
     private String naziv;
 
-    @OneToMany
+    @OneToMany(
+            mappedBy = "prodavac",
+            cascade = CascadeType.ALL
+    )
+    @JsonIgnore
     private List<Artikal> artikli;// artikli koje prodavac prodaje
 
-    @OneToMany
+    @OneToMany(
+            mappedBy = "prodavac",
+            cascade = CascadeType.ALL
+    )
+    @JsonIgnore
     private List<Akcija> akcije;
 
     public Prodavac() {

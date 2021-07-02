@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AkcijaServiceImplementation implements AkcijaService {
@@ -18,11 +19,17 @@ public class AkcijaServiceImplementation implements AkcijaService {
         this.repository = repository;
     }
 
-
     @Override
     @ReadOnlyProperty
     public List<Akcija> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<Akcija> findByIds(List<Long> ids) {
+        return ids.stream()
+                .map(id -> findById(id))
+                .collect(Collectors.toList());
     }
 
     @Override

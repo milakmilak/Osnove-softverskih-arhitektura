@@ -4,6 +4,8 @@ import com.osa.osaproject.dto.ArtikalDto;
 import com.osa.osaproject.model.Artikal;
 import com.osa.osaproject.service.ArtikalService;
 import com.osa.osaproject.util.ArtikalMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -13,8 +15,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/artikli")
-@CrossOrigin(origins = "http://localhost:4200")
 public class ArtikalController {
+
+    private static Logger logger = LoggerFactory.getLogger(ArtikalController.class);
 
     @Autowired
     private ArtikalService service;
@@ -27,6 +30,7 @@ public class ArtikalController {
         List<Artikal> found = service.findAll();
         List<ArtikalDto> converted = mapper.mapToArtikalsDto(found);
 
+        logger.info("GET '/api/v1/artikli': Finding all artikli.");
         return ResponseEntity.ok(converted);
     }
 
@@ -36,6 +40,7 @@ public class ArtikalController {
         Artikal found = service.findById(id);
         ArtikalDto converted = mapper.mapToArtikalDto(found);
 
+        logger.info("GET '/api/v1/artikli/{id}': Finding artikal by it's ID.");
         return ResponseEntity.ok(converted);
     }
 
@@ -45,6 +50,7 @@ public class ArtikalController {
         Artikal created = mapper.mapToArtikal(dto);
         created = service.create(created);
 
+        logger.info("POST '/api/v1/artikli': Creating artikal.");
         return ResponseEntity.ok(created);
     }
 
@@ -56,12 +62,14 @@ public class ArtikalController {
 
         updated = service.update(id, converted);
 
+        logger.info("PUT '/api/v1/artikli/{id}': Updating artikal.");
         return ResponseEntity.ok(updated);
     }
 
     @PreAuthorize("hasRole('ROLE_PRODAVAC')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
+        logger.info("DELETE '/api/v1/artikli/{id}': Deleting artikal by it's ID.");
         service.delete(id);
     }
 

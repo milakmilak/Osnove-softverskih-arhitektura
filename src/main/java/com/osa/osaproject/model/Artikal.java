@@ -1,19 +1,14 @@
 package com.osa.osaproject.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Artikal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private java.lang.Long id;
 
     private String naziv;
     private String opis;
@@ -22,7 +17,7 @@ public class Artikal {
 
     private String putanjaSlike;
 
-    @OneToOne
+    @ManyToOne
     private Prodavac prodavac; //koji prodavac(korisnik) prodaje ovaj artikal
 
     @OneToMany
@@ -37,7 +32,7 @@ public class Artikal {
         this.opis = opis;
         this.cena = cena;
         this.putanjaSlike = putanjaSlike;
-        this.prodavac = prodavac;
+        this.prodavac = getProdavac();
         this.akcija = akcija;
     }
 
@@ -45,7 +40,7 @@ public class Artikal {
         return id;
     }
 
-    public Artikal setId(Long id) {
+    public Artikal setId(java.lang.Long id) {
         this.id = id;
         return this;
     }

@@ -3,6 +3,8 @@ package com.osa.osaproject.service.implementation;
 import com.osa.osaproject.model.Artikal;
 import com.osa.osaproject.repository.ArtikalRepository;
 import com.osa.osaproject.service.ArtikalService;
+import com.osa.osaproject.service.ProdavacService;
+import com.osa.osaproject.util.JwtUtil;
 import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,13 @@ import java.util.List;
 public class ArtikalServiceImplementation implements ArtikalService {
 
     private final ArtikalRepository repository;
+    private final ProdavacService prodavacService;
+    private final JwtUtil jwtUtil;
 
-    public ArtikalServiceImplementation(ArtikalRepository repository) {
+    public ArtikalServiceImplementation(ArtikalRepository repository, ProdavacService prodavacService, JwtUtil jwtUtil) {
         this.repository = repository;
+        this.prodavacService = prodavacService;
+        this.jwtUtil = jwtUtil;
     }
 
     @Override
