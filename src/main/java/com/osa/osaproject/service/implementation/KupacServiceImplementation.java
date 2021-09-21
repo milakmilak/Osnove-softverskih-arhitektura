@@ -58,6 +58,14 @@ public class KupacServiceImplementation implements KupacService {
     }
 
     @Override
+    public Kupac block(Long id, Boolean isBlokiran) {
+        Kupac blocked = repository.findById(id).get();
+        blocked.setIsBlokiran(isBlokiran);
+
+        return repository.save(blocked);
+    }
+
+    @Override
     @Transactional
     public void delete(Long id) {
         Kupac deleted = repository.findById(id).get();

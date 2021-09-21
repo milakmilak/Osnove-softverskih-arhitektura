@@ -30,7 +30,8 @@ public class ArtikalController {
         List<Artikal> found = service.findAll();
         List<ArtikalDto> converted = mapper.mapToArtikalsDto(found);
 
-        logger.info("GET '/api/v1/artikli': Finding all artikli.");
+        logger.info("GET '/api/v1/artikli': Finding all articles.");
+
         return ResponseEntity.ok(converted);
     }
 
@@ -40,7 +41,8 @@ public class ArtikalController {
         Artikal found = service.findById(id);
         ArtikalDto converted = mapper.mapToArtikalDto(found);
 
-        logger.info("GET '/api/v1/artikli/{id}': Finding artikal by it's ID.");
+        logger.info("GET '/api/v1/artikli/{}': Finding article by it's id: {}", id);
+
         return ResponseEntity.ok(converted);
     }
 
@@ -50,7 +52,8 @@ public class ArtikalController {
         Artikal created = mapper.mapToArtikal(dto);
         created = service.create(created);
 
-        logger.info("POST '/api/v1/artikli': Creating artikal.");
+        logger.info("POST '/api/v1/artikli': Creating article.");
+
         return ResponseEntity.ok(created);
     }
 
@@ -62,14 +65,16 @@ public class ArtikalController {
 
         updated = service.update(id, converted);
 
-        logger.info("PUT '/api/v1/artikli/{id}': Updating artikal.");
+        logger.info("PUT '/api/v1/artikli/{}': Updating article with id: {}", id);
+
         return ResponseEntity.ok(updated);
     }
 
     @PreAuthorize("hasRole('ROLE_PRODAVAC')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-        logger.info("DELETE '/api/v1/artikli/{id}': Deleting artikal by it's ID.");
+        logger.info("DELETE '/api/v1/artikli/{}': Deleting article with id: {}", id);
+
         service.delete(id);
     }
 

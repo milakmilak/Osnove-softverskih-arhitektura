@@ -15,12 +15,19 @@ public class Artikal {
 
     private Double cena;
 
+    @Lob
     private String putanjaSlike;
 
     @ManyToOne
     private Prodavac prodavac; //koji prodavac(korisnik) prodaje ovaj artikal
 
-    @OneToMany
+//    @OneToMany
+    @ManyToMany
+    @JoinTable(
+            name="artikal_akcija_test",
+            joinColumns = @JoinColumn(name = "artikal_id"),
+            inverseJoinColumns = @JoinColumn(name = "akcija_id")
+    )
     private List<Akcija> akcija; // lista akcija na kojim se nalazi ovaj artikal, npr nalazi se na novogodisnjoj i na uskrsnjoj akciji(lupam, primer), pa spisak svih tih akcija
 
     public Artikal() {

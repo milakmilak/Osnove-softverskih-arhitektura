@@ -24,7 +24,8 @@ public class PorudzbinaController {
 
     @PostMapping
     public ResponseEntity<Porudzbina> create(@RequestBody Porudzbina create) {
-        logger.info("POST '/api/v1/porudzbine': Creating porudzbina.");
+        logger.info("POST '/api/v1/porudzbine': Creating order.");
+
         return ResponseEntity.ok(service.create(create));
     }
 }

@@ -11,6 +11,7 @@ public interface ProdavacService {
     Prodavac findByUsername(String username);
     Prodavac create(Prodavac prodavac);
     Prodavac update(Long id, Prodavac update);
+    Prodavac block(Long id, Boolean isBlokiran);
     void delete(Long id);
 
 }
