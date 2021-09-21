@@ -39,3 +39,8 @@
 2021-07-02 12:25:42,430 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-2] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
 2021-07-02 12:26:46,505 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-4] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
 2021-07-02 12:27:08,438 INFO c.o.o.c.ProdavacController [http-nio-8080-exec-5] GET '/api/v1/prodavci/{username}/akcije': Finding akcije of prodavac by his username.
+2021-07-02 12:58:23,958 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-02 12:58:23,959 INFO o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2021-07-02 12:58:23,988 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-07-02 12:58:23,988 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-07-02 12:58:24,192 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
