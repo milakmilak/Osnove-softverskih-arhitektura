@@ -38,7 +38,10 @@ public class AuthenticationController {
         UserDetails userDetails = userDetailsService.loadUserByUsername(dto.getUsername());
 
         logger.info("POST '/api/v1/authenticate': Generating token.");
+
         String generatedToken = jwtUtil.generateToken(userDetails);
+
+        logger.info("POST '/api/v1/authenticate': Token generated: {}", generatedToken);
 
         return generatedToken;
     }

@@ -1,5 +1,6 @@
 package com.osa.osaproject.model;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -18,7 +19,8 @@ public class Akcija {
 
     private String tekst;
 
-    @OneToMany
+//    @OneToMany
+    @ManyToMany
     private List<Artikal> artikliNaAkciji;
 
     @ManyToOne

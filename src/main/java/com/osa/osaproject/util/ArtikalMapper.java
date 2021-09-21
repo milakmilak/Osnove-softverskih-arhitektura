@@ -38,6 +38,7 @@ public class ArtikalMapper {
         converted.setOpis(artikal.getOpis());
         converted.setCena(artikal.getCena());
         converted.setProdavac(artikal.getProdavac());
+        converted.setPutanjaSlike(artikal.getPutanjaSlike());
 
         return converted;
     }
@@ -65,8 +66,8 @@ public class ArtikalMapper {
                 .setNaziv(dto.getNaziv())
                 .setId(dto.getId())
                 .setOpis(dto.getOpis())
-                .setCena(dto.getCena());
-                //.setPutanjaSlike(dto.getPutanjaSlike())
+                .setCena(dto.getCena())
+                .setPutanjaSlike(dto.getPutanjaSlike());
                 //.setProdavac(prodavacService.findById(dto.getProdavacId()))
                 //.setProdavac(dto.getProdavac())
                 //.setAkcija(akcijaService.findByIds(dto.getAkcijeIds()));

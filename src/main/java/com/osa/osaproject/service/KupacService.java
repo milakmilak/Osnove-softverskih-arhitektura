@@ -11,6 +11,7 @@ public interface KupacService {
     Kupac findByUsername(String username);
     Kupac create(Kupac kupac);
     Kupac update(Long id, Kupac update);
+    Kupac block(Long id, Boolean isBlokiran);
     void delete(Long id);
 
 }
